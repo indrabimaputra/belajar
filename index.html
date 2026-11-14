@@ -7,12 +7,12 @@
     <!-- =================================================================
          1. EDIT JUDUL WEBSITE DI SINI (Muncul di Tab Browser)
          ================================================================= -->
-    <title>KarsaDigital — Ruang Inovasi & Karya Kreatif</title>
+    <title>InfoLab SMA — Portal Pembelajaran Informatika & Visi Komputer</title>
 
-    <!-- Menggunakan Font Google 'Plus Jakarta Sans' agar tampilan modern & rapi -->
+    <!-- Menggunakan Font Google 'Plus Jakarta Sans' & 'JetBrains Mono' untuk tampilan kode/data -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <!-- Memuat Tailwind CSS untuk tata letak responsif -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -24,13 +24,13 @@
     <style>
         :root {
             /* Warna Latar Belakang Utama (Gelap Elegan) */
-            --bg-utama: #0B0F19;
+            --bg-utama: #090D16;
             --bg-kedua: #111827;
-            --bg-kartu: rgba(30, 41, 59, 0.55);
+            --bg-kartu: rgba(23, 33, 54, 0.65);
 
-            /* Warna Aksen (Ungu Indigo, Hijau Emerald, & Kuning Amber) */
-            --warna-primer: #6366F1;       /* Indigo cerah */
-            --warna-primer-hover: #4F46E5; 
+            /* Warna Aksen (Biru Siber, Hijau Emerald, & Kuning Amber) */
+            --warna-primer: #3B82F6;       /* Biru Siber */
+            --warna-primer-hover: #2563EB; 
             --warna-sekunder: #10B981;     /* Emerald segar */
             --warna-aksen: #F59E0B;        /* Amber hangat */
 
@@ -46,9 +46,13 @@
             overflow-x: hidden;
         }
 
+        .font-mono-code {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
         /* Efek Kaca Transparan (Glassmorphism) untuk Navbar & Kartu */
         .efek-kaca {
-            background: rgba(15, 23, 42, 0.75);
+            background: rgba(9, 13, 22, 0.82);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.08);
@@ -62,28 +66,28 @@
         }
 
         .kartu-kaca:hover {
-            transform: translateY(-6px);
-            border-color: rgba(99, 102, 241, 0.4);
-            box-shadow: 0 20px 40px -15px rgba(99, 102, 241, 0.2);
+            transform: translateY(-4px);
+            border-color: rgba(59, 130, 246, 0.45);
+            box-shadow: 0 20px 40px -15px rgba(59, 130, 246, 0.22);
         }
 
         /* Efek Teks Gradasi */
         .teks-gradasi {
-            background: linear-gradient(135deg, #818CF8 0%, #34D399 50%, #FBBF24 100%);
+            background: linear-gradient(135deg, #60A5FA 0%, #34D399 55%, #FBBF24 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
         /* Tombol Utama dengan Gradasi */
         .tombol-utama {
-            background: linear-gradient(135deg, var(--warna-primer) 0%, #4338CA 100%);
+            background: linear-gradient(135deg, var(--warna-primer) 0%, #1D4ED8 100%);
             transition: all 0.3s ease;
-            box-shadow: 0 10px 25px -5px rgba(99, 102, 241, 0.4);
+            box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.4);
         }
 
         .tombol-utama:hover {
             transform: translateY(-2px);
-            box-shadow: 0 15px 30px -5px rgba(99, 102, 241, 0.6);
+            box-shadow: 0 15px 30px -5px rgba(59, 130, 246, 0.6);
             filter: brightness(1.1);
         }
 
@@ -91,27 +95,27 @@
         .cahaya-latar {
             position: absolute;
             border-radius: 9999px;
-            filter: blur(100px);
+            filter: blur(110px);
             z-index: -1;
-            opacity: 0.35;
+            opacity: 0.3;
             pointer-events: none;
         }
 
-        /* Animasi Mengambang Halus untuk Ilustrasi Hero */
+        /* Animasi Mengambang Halus */
         @keyframes mengambang {
             0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-12px); }
+            50% { transform: translateY(-10px); }
         }
         .animasi-mengambang {
             animation: mengambang 5s ease-in-out infinite;
         }
     </style>
 </head>
-<body class="antialiased selection:bg-indigo-500 selection:text-white">
+<body class="antialiased selection:bg-blue-500 selection:text-white">
 
     <!-- Cahaya Dekoratif di Latar Belakang -->
-    <div class="cahaya-latar w-96 h-96 bg-indigo-600 top-[-50px] left-[-100px]"></div>
-    <div class="cahaya-latar w-96 h-96 bg-emerald-600 top-[300px] right-[-120px]"></div>
+    <div class="cahaya-latar w-96 h-96 bg-blue-600 top-[-50px] left-[-100px]"></div>
+    <div class="cahaya-latar w-96 h-96 bg-emerald-600 top-[400px] right-[-120px]"></div>
 
     <!-- =================================================================
          3. BAGIAN NAVIGASI (NAVBAR)
@@ -120,31 +124,37 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
                 
-                <!-- EDIT DI SINI: Nama / Logo Website Anda -->
+                <!-- EDIT DI SINI: Nama / Logo Portal Pembelajaran Anda -->
                 <a href="#" class="flex items-center gap-3 group">
-                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500 via-purple-500 to-emerald-400 flex items-center justify-center text-white font-extrabold text-xl shadow-lg group-hover:scale-105 transition-transform">
-                        K
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 via-cyan-500 to-emerald-400 flex items-center justify-center text-slate-950 font-extrabold text-xl shadow-lg group-hover:scale-105 transition-transform">
+                        &lt;/&gt;
                     </div>
-                    <span class="font-bold text-xl tracking-tight text-white">
-                        Karsa<span class="text-indigo-400">Digital</span>
-                    </span>
+                    <div>
+                        <span class="font-bold text-lg sm:text-xl tracking-tight text-white block leading-none">
+                            InfoLab<span class="text-blue-400">SMA</span>
+                        </span>
+                        <span class="text-[11px] text-slate-400 tracking-wider uppercase">Kurikulum Merdeka</span>
+                    </div>
                 </a>
 
                 <!-- EDIT DI SINI: Menu Navigasi Desktop -->
                 <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-300">
                     <a href="#beranda" class="hover:text-white transition-colors">Beranda</a>
-                    <a href="#tentang" class="hover:text-white transition-colors">Tentang Kami</a>
-                    <a href="#keunggulan" class="hover:text-white transition-colors">Fitur Utama</a>
-                    <a href="#karya" class="hover:text-white transition-colors">Sorotan Karya</a>
+                    <a href="#materi" class="hover:text-white transition-colors">Materi Informatika</a>
+                    <a href="#lab-webcam" class="text-emerald-400 hover:text-emerald-300 font-semibold transition-colors flex items-center gap-1.5">
+                        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                        Lab Webcam AI
+                    </a>
+                    <a href="#proyek" class="hover:text-white transition-colors">Proyek Siswa</a>
                     <a href="#kontak" class="hover:text-white transition-colors">Kontak</a>
                 </nav>
 
                 <!-- EDIT DI SINI: Tombol Aksi di Pojok Kanan Atas -->
                 <div class="hidden md:flex items-center gap-4">
-                    <a href="#kontak" class="tombol-utama px-5 py-2.5 rounded-xl text-sm font-semibold text-white flex items-center gap-2">
-                        <span>Mulai Eksplorasi</span>
+                    <a href="#lab-webcam" class="tombol-utama px-5 py-2.5 rounded-xl text-sm font-semibold text-white flex items-center gap-2">
+                        <span>Buka Lab Webcam</span>
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/>
                         </svg>
                     </a>
                 </div>
@@ -166,129 +176,112 @@
         <!-- Menu Dropdown untuk HP -->
         <div id="menu-hp" class="hidden md:hidden bg-slate-900/95 border-b border-slate-800 px-4 pt-3 pb-6 space-y-3">
             <a href="#beranda" class="block px-3 py-2 rounded-lg text-base font-medium text-slate-200 hover:bg-slate-800">Beranda</a>
-            <a href="#tentang" class="block px-3 py-2 rounded-lg text-base font-medium text-slate-200 hover:bg-slate-800">Tentang Kami</a>
-            <a href="#keunggulan" class="block px-3 py-2 rounded-lg text-base font-medium text-slate-200 hover:bg-slate-800">Fitur Utama</a>
-            <a href="#karya" class="block px-3 py-2 rounded-lg text-base font-medium text-slate-200 hover:bg-slate-800">Sorotan Karya</a>
+            <a href="#materi" class="block px-3 py-2 rounded-lg text-base font-medium text-slate-200 hover:bg-slate-800">Materi Informatika</a>
+            <a href="#lab-webcam" class="block px-3 py-2 rounded-lg text-base font-semibold text-emerald-400 hover:bg-slate-800">Lab Interaktif Webcam</a>
+            <a href="#proyek" class="block px-3 py-2 rounded-lg text-base font-medium text-slate-200 hover:bg-slate-800">Proyek Siswa</a>
             <a href="#kontak" class="block px-3 py-2 rounded-lg text-base font-medium text-slate-200 hover:bg-slate-800">Kontak</a>
-            <div class="pt-2">
-                <a href="#kontak" class="tombol-utama w-full py-3 rounded-xl text-center font-semibold text-white block">
-                    Mulai Eksplorasi
-                </a>
-            </div>
         </div>
     </header>
 
     <!-- =================================================================
-         4. BAGIAN HERO (PERKENALAN UTAMA WEBSITE)
+         4. BAGIAN HERO (PENGANTAR PEMBELAJARAN INFORMATIKA)
          ================================================================= -->
-    <section id="beranda" class="relative pt-32 pb-20 md:pt-40 md:pb-28 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <section id="beranda" class="relative pt-32 pb-20 md:pt-40 md:pb-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             
-            <!-- Kolom Kiri: Teks Perkenalan -->
+            <!-- Kolom Kiri: Teks Pengantar -->
             <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
                 
-                <!-- EDIT DI SINI: Label Pengumuman Kecil -->
-                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/30 text-indigo-300 text-xs sm:text-sm font-medium">
+                <!-- EDIT DI SINI: Label Mata Pelajaran -->
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-300 text-xs sm:text-sm font-medium">
                     <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
-                    <span>Selamat Datang di Platform Resmi Kami</span>
+                    <span>Mata Pelajaran Informatika SMA • Kurikulum Merdeka</span>
                 </div>
 
-                <!-- EDIT DI SINI: Judul Besar (Headline) -->
+                <!-- EDIT DI SINI: Judul Utama -->
                 <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
-                    Wujudkan Ide Kreatif Menjadi <span class="teks-gradasi">Solusi Digital</span> Berdampak.
+                    Belajar Logika, Data, & <span class="teks-gradasi">Visi Komputer</span> Secara Interaktif.
                 </h1>
 
-                <!-- EDIT DI SINI: Deskripsi Singkat Tentang Website Anda -->
+                <!-- EDIT DI SINI: Deskripsi Portal -->
                 <p class="text-base sm:text-lg text-slate-400 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-                    Selamat datang di <strong class="text-slate-200">KarsaDigital</strong>. Website ini adalah ruang kolaborasi, portofolio karya, dan pusat informasi layanan yang dirancang untuk membantu Anda mengenal visi serta inovasi yang kami bangun.
+                    Selamat datang di <strong class="text-slate-200">InfoLab SMA</strong>. Portal ini dirancang untuk membantu siswa memahami konsep Berpikir Komputasional, Literasi Digital, hingga cara kerja Kecerdasan Artifisial (AI) melalui simulasi langsung menggunakan kamera perangkat Anda.
                 </p>
 
-                <!-- EDIT DI SINI: Tombol Aksi Utama & Kedua -->
+                <!-- Tombol Aksi -->
                 <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
-                    <a href="#keunggulan" class="tombol-utama w-full sm:w-auto px-7 py-4 rounded-xl font-semibold text-white flex items-center justify-center gap-2 text-base">
-                        <span>Pelajari Lebih Lanjut</span>
+                    <a href="#lab-webcam" class="tombol-utama w-full sm:w-auto px-7 py-4 rounded-xl font-semibold text-white flex items-center justify-center gap-2.5 text-base">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/>
                         </svg>
+                        <span>Coba Lab Interaktif Webcam</span>
                     </a>
-                    <a href="#karya" class="w-full sm:w-auto px-7 py-4 rounded-xl font-semibold text-slate-200 bg-slate-800/70 hover:bg-slate-800 border border-slate-700 transition-all text-base text-center">
-                        Lihat Galeri Karya
+                    <a href="#materi" class="w-full sm:w-auto px-7 py-4 rounded-xl font-semibold text-slate-200 bg-slate-800/70 hover:bg-slate-800 border border-slate-700 transition-all text-base text-center">
+                        Jelajahi Materi Belajar
                     </a>
                 </div>
 
-                <!-- EDIT DI SINI: Angka Statistik / Pencapaian Singkat -->
+                <!-- Ringkasan Elemen Kurikulum -->
                 <div class="pt-6 border-t border-slate-800/80 grid grid-cols-3 gap-4 max-w-lg mx-auto lg:mx-0">
                     <div>
-                        <p class="text-2xl sm:text-3xl font-bold text-white">100%</p>
-                        <p class="text-xs sm:text-sm text-slate-400">Desain Responsif</p>
+                        <p class="text-2xl sm:text-3xl font-bold text-white">4 Elemen</p>
+                        <p class="text-xs sm:text-sm text-slate-400">Capaian Pembelajaran</p>
                     </div>
                     <div>
-                        <p class="text-2xl sm:text-3xl font-bold text-emerald-400">24/7</p>
-                        <p class="text-xs sm:text-sm text-slate-400">Akses Informasi</p>
+                        <p class="text-2xl sm:text-3xl font-bold text-emerald-400">Real-Time</p>
+                        <p class="text-xs sm:text-sm text-slate-400">Simulasi Citra RGB</p>
                     </div>
                     <div>
-                        <p class="text-2xl sm:text-3xl font-bold text-amber-400">50+</p>
-                        <p class="text-xs sm:text-sm text-slate-400">Proyek & Ide</p>
+                        <p class="text-2xl sm:text-3xl font-bold text-amber-400">100% Lokal</p>
+                        <p class="text-xs sm:text-sm text-slate-400">Aman & Privat di Browser</p>
                     </div>
                 </div>
             </div>
 
-            <!-- Kolom Kanan: Ilustrasi Visual Kartu Interaktif -->
+            <!-- Kolom Kanan: Kartu Visualisasi Konsep Data Piksel -->
             <div class="lg:col-span-5 relative">
                 <div class="animasi-mengambang relative mx-auto max-w-md lg:max-w-none">
-                    <!-- Bingkai Mockup Website Modern -->
-                    <div class="kartu-kaca rounded-2xl p-5 sm:p-6 shadow-2xl relative overflow-hidden">
-                        <!-- Bar Atas ala Jendela Browser -->
+                    <div class="kartu-kaca rounded-2xl p-6 shadow-2xl relative overflow-hidden">
                         <div class="flex items-center justify-between pb-4 mb-4 border-b border-slate-700/60">
                             <div class="flex items-center gap-2">
                                 <span class="w-3 h-3 rounded-full bg-rose-500"></span>
                                 <span class="w-3 h-3 rounded-full bg-amber-400"></span>
                                 <span class="w-3 h-3 rounded-full bg-emerald-500"></span>
                             </div>
-                            <span class="text-xs text-slate-400 font-mono bg-slate-900/70 px-3 py-1 rounded-md">
-                                karsadigital.id
+                            <span class="text-xs text-blue-300 font-mono-code bg-blue-950/80 px-3 py-1 rounded-md border border-blue-800/60">
+                                representasi_citra.py
                             </span>
                         </div>
 
-                        <!-- Isi Visual Mockup (Bisa diganti gambar jika mau) -->
                         <div class="space-y-4">
-                            <div class="p-4 rounded-xl bg-gradient-to-r from-indigo-500/20 via-purple-500/15 to-emerald-500/20 border border-indigo-500/30">
-                                <span class="text-xs font-semibold uppercase tracking-wider text-indigo-300">Visi Utama</span>
-                                <h3 class="text-lg font-bold text-white mt-1">Membangun Ekosistem Digital yang Mudah Diakses</h3>
-                                <p class="text-xs text-slate-300 mt-1">Dirancang dengan antarmuka bersih, cepat, dan ramah pengguna.</p>
+                            <div class="p-4 rounded-xl bg-slate-900/90 border border-slate-800 font-mono-code text-xs space-y-1.5">
+                                <p class="text-slate-400"># Bagaimana komputer melihat gambar?</p>
+                                <p><span class="text-blue-400">piksel_tengah</span> = {</p>
+                                <p class="pl-4"><span class="text-emerald-400">"Red"</span>: <span class="text-amber-300">59</span>,</p>
+                                <p class="pl-4"><span class="text-emerald-400">"Green"</span>: <span class="text-amber-300">130</span>,</p>
+                                <p class="pl-4"><span class="text-emerald-400">"Blue"</span>: <span class="text-amber-300">246</span>,</p>
+                                <p class="pl-4"><span class="text-emerald-400">"Hex"</span>: <span class="text-cyan-300">"#3B82F6"</span></p>
+                                <p>}</p>
                             </div>
 
-                            <div class="grid grid-cols-2 gap-3">
-                                <div class="p-4 rounded-xl bg-slate-800/60 border border-slate-700/50">
-                                    <div class="w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center mb-2">
-                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                                        </svg>
-                                    </div>
-                                    <p class="text-sm font-bold text-white">Mudah Diedit</p>
-                                    <p class="text-xs text-slate-400 mt-0.5">Struktur kode rapi & jelas</p>
+                            <div class="grid grid-cols-3 gap-2 text-center font-mono-code text-xs">
+                                <div class="p-3 rounded-xl bg-rose-500/15 border border-rose-500/30 text-rose-300">
+                                    <span class="block font-bold text-sm">R: 255</span>
+                                    <span>Merah</span>
                                 </div>
-
-                                <div class="p-4 rounded-xl bg-slate-800/60 border border-slate-700/50">
-                                    <div class="w-8 h-8 rounded-lg bg-amber-500/20 text-amber-400 flex items-center justify-center mb-2">
-                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-                                        </svg>
-                                    </div>
-                                    <p class="text-sm font-bold text-white">Performa Cepat</p>
-                                    <p class="text-xs text-slate-400 mt-0.5">Ringan di semua perangkat</p>
+                                <div class="p-3 rounded-xl bg-emerald-500/15 border border-emerald-500/30 text-emerald-300">
+                                    <span class="block font-bold text-sm">G: 255</span>
+                                    <span>Hijau</span>
+                                </div>
+                                <div class="p-3 rounded-xl bg-blue-500/15 border border-blue-500/30 text-blue-300">
+                                    <span class="block font-bold text-sm">B: 255</span>
+                                    <span>Biru</span>
                                 </div>
                             </div>
 
-                            <!-- Bar Progress Visual -->
-                            <div class="p-4 rounded-xl bg-slate-900/70 border border-slate-800">
-                                <div class="flex justify-between text-xs mb-2">
-                                    <span class="text-slate-300 font-medium">Kesiapan Peluncuran Website</span>
-                                    <span class="text-emerald-400 font-bold">Siap Digunakan!</span>
-                                </div>
-                                <div class="w-full h-2 bg-slate-800 rounded-full overflow-hidden">
-                                    <div class="w-11/12 h-full bg-gradient-to-r from-indigo-500 via-emerald-400 to-amber-400 rounded-full"></div>
-                                </div>
+                            <div class="p-3.5 rounded-xl bg-gradient-to-r from-blue-500/15 to-emerald-500/15 border border-blue-500/20 flex items-center justify-between">
+                                <span class="text-xs text-slate-300">Praktikkan langsung di bawah!</span>
+                                <a href="#lab-webcam" class="text-xs font-bold text-emerald-400 hover:underline">Mulai Praktikum →</a>
                             </div>
                         </div>
                     </div>
@@ -299,192 +292,385 @@
     </section>
 
     <!-- =================================================================
-         5. BAGIAN TENTANG WEBSITE (CERITA SINGKAT)
+         5. BAGIAN MATERI INFORMATIKA (KURIKULUM MERDEKA)
          ================================================================= -->
-    <section id="tentang" class="py-16 bg-slate-900/50 border-y border-slate-800/80">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
-            <!-- EDIT DI SINI: Penjelasan Tentang Tujuan Website Anda -->
-            <span class="text-xs font-bold uppercase tracking-widest text-indigo-400 bg-indigo-500/10 px-3 py-1 rounded-full">
-                Tentang Website Ini
-            </span>
-            <h2 class="text-2xl sm:text-4xl font-bold text-white">
-                Mengapa Website Ini Dibuat?
-            </h2>
-            <p class="text-slate-300 text-base sm:text-lg leading-relaxed max-w-3xl mx-auto">
-                Website ini hadir sebagai jendela informasi utama untuk memperkenalkan profil, gagasan, serta berbagai proyek yang sedang kami kembangkan. Kami percaya bahwa kolaborasi yang hebat dimulai dari perkenalan yang hangat dan penyampaian informasi yang jernih.
-            </p>
-        </div>
-    </section>
-
-    <!-- =================================================================
-         6. BAGIAN FITUR / KEUNGGULAN UTAMA (3 KARTU)
-         ================================================================= -->
-    <section id="keunggulan" class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        
-        <!-- Judul Seksi -->
-        <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
-            <span class="text-sm font-semibold text-emerald-400 uppercase tracking-wider">Fokus & Layanan Kami</span>
-            <h2 class="text-3xl sm:text-4xl font-extrabold text-white">
-                Apa Saja yang Bisa Anda Temukan di Sini?
-            </h2>
-            <p class="text-slate-400 text-base">
-                Tiga pilar utama yang menjadi fondasi dari pengembangan platform ini.
-            </p>
-        </div>
-
-        <!-- Grid 3 Kartu Keunggulan -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <section id="materi" class="py-20 bg-slate-900/40 border-y border-slate-800/80 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
             
-            <!-- EDIT KARTU 1 DI SINI -->
-            <div class="kartu-kaca rounded-2xl p-7 flex flex-col justify-between">
-                <div>
-                    <div class="w-14 h-14 rounded-2xl bg-indigo-500/20 border border-indigo-500/30 flex items-center justify-center text-indigo-400 mb-6">
-                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-3">Inovasi & Ide Segar</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed">
-                        Menyajikan berbagai artikel, riset terapan, dan dokumentasi ide kreatif yang relevan dengan perkembangan teknologi masa kini.
-                    </p>
-                </div>
-                <div class="mt-6 pt-4 border-t border-slate-800 flex items-center text-xs font-semibold text-indigo-400">
-                    <span>Eksplorasi Gagasan</span>
-                </div>
+            <!-- Judul Seksi -->
+            <div class="text-center max-w-3xl mx-auto mb-14 space-y-3">
+                <span class="text-sm font-semibold text-blue-400 uppercase tracking-wider">Capaian Pembelajaran SMA</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white">
+                    Materi Inti Informatika
+                </h2>
+                <p class="text-slate-400 text-base">
+                    Empat pilar utama pembelajaran Informatika yang mengasah nalar kritis, etika digital, dan kecakapan teknologi masa depan.
+                </p>
             </div>
 
-            <!-- EDIT KARTU 2 DI SINI -->
-            <div class="kartu-kaca rounded-2xl p-7 flex flex-col justify-between">
-                <div>
-                    <div class="w-14 h-14 rounded-2xl bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-emerald-400 mb-6">
-                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"/>
-                        </svg>
+            <!-- Grid 4 Kartu Materi (Mudah Diedit) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <!-- EDIT MATERI 1 DI SINI -->
+                <div class="kartu-kaca rounded-2xl p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-blue-500/20 border border-blue-500/30 flex items-center justify-center text-blue-400 mb-5 font-mono-code font-bold">
+                            01
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2.5">Berpikir Komputasional & Algoritma</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            Memecahkan masalah kompleks melalui dekomposisi, pengenalan pola, abstraksi, serta penyusunan langkah logis (algoritma) dan struktur data.
+                        </p>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-3">Galeri Proyek & Karya</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed">
-                        Menampilkan portofolio produk digital, desain antarmuka, maupun program kolaboratif yang telah selesai maupun sedang dikerjakan.
-                    </p>
-                </div>
-                <div class="mt-6 pt-4 border-t border-slate-800 flex items-center text-xs font-semibold text-emerald-400">
-                    <span>Portofolio Terkurasi</span>
-                </div>
-            </div>
-
-            <!-- EDIT KARTU 3 DI SINI -->
-            <div class="kartu-kaca rounded-2xl p-7 flex flex-col justify-between">
-                <div>
-                    <div class="w-14 h-14 rounded-2xl bg-amber-500/20 border border-amber-500/30 flex items-center justify-center text-amber-400 mb-6">
-                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
-                        </svg>
+                    <div class="mt-6 pt-4 border-t border-slate-800 flex items-center justify-between text-xs">
+                        <span class="text-blue-400 font-semibold">Fondasi Logika</span>
+                        <span class="text-slate-500">Fase E & F</span>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-3">Jaringan & Kolaborasi</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed">
-                        Membuka pintu komunikasi bagi pengunjung, rekan komunitas, maupun mitra yang ingin berdiskusi dan berkolaborasi bersama kami.
-                    </p>
                 </div>
-                <div class="mt-6 pt-4 border-t border-slate-800 flex items-center text-xs font-semibold text-amber-400">
-                    <span>Terbuka untuk Diskusi</span>
-                </div>
-            </div>
 
+                <!-- EDIT MATERI 2 DI SINI -->
+                <div class="kartu-kaca rounded-2xl p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-emerald-400 mb-5 font-mono-code font-bold">
+                            02
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2.5">Literasi Digital & Verifikasi Fakta</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            Strategi penjelajahan informasi secara efektif, evaluasi kredibilitas sumber digital, serta teknik verifikasi fakta untuk menangkal disinformasi dan hoaks.
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-800 flex items-center justify-between text-xs">
+                        <span class="text-emerald-400 font-semibold">Anti-Hoaks & Kritis</span>
+                        <span class="text-slate-500">Fase E & F</span>
+                    </div>
+                </div>
+
+                <!-- EDIT MATERI 3 DI SINI -->
+                <div class="kartu-kaca rounded-2xl p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-amber-500/20 border border-amber-500/30 flex items-center justify-center text-amber-400 mb-5 font-mono-code font-bold">
+                            03
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2.5">Dampak Sosial & Etika Digital</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            Memahami jejak digital, perlindungan data pribadi, hak kekayaan intelektual (lisensi perangkat lunak), serta etika berinteraksi di ruang siber.
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-800 flex items-center justify-between text-xs">
+                        <span class="text-amber-400 font-semibold">Keamanan & Privasi</span>
+                        <span class="text-slate-500">Fase E & F</span>
+                    </div>
+                </div>
+
+                <!-- EDIT MATERI 4 DI SINI -->
+                <div class="kartu-kaca rounded-2xl p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-purple-500/20 border border-purple-500/30 flex items-center justify-center text-purple-400 mb-5 font-mono-code font-bold">
+                            04
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2.5">Kecerdasan Artifisial & Visi Komputer</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            Mengenal cara mesin memproses citra digital menjadi matriks angka RGB, mengenali tepi objek, hingga mendeteksi gerakan secara otomatis.
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-800 flex items-center justify-between text-xs">
+                        <span class="text-purple-400 font-semibold">Praktik di Lab Webcam</span>
+                        <span class="text-slate-500">Fase F</span>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </section>
 
     <!-- =================================================================
-         7. BAGIAN SOROTAN KARYA / PROYEK (DENGAN FILTER INTERAKTIF)
+         6. APLIKASI UTAMA INTERAKTIF BERBASIS WEBCAM
+         "Lab Visi Komputer & Representasi Data Digital"
          ================================================================= -->
-    <section id="karya" class="py-20 bg-slate-900/40 border-t border-slate-800/80">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="lab-webcam" class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        
+        <!-- Judul Lab Interaktif -->
+        <div class="text-center max-w-3xl mx-auto mb-12 space-y-3">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-300 text-xs font-semibold uppercase tracking-wider">
+                Praktikum Interaktif Berbasis Browser
+            </div>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-white">
+                Lab Visi Komputer & Representasi Data Digital
+            </h2>
+            <p class="text-slate-400 text-sm sm:text-base">
+                Nyalakan webcam Anda untuk mengamati bagaimana komputer menerjemahkan cahaya menjadi angka matriks RGB, mendeteksi tepi objek, dan menghitung perubahan gerakan antar-frame.
+            </p>
+        </div>
+
+        <!-- Kontainer Utama Aplikasi Webcam -->
+        <div class="kartu-kaca rounded-3xl p-5 sm:p-8 border border-slate-700/80 shadow-2xl">
+            
+            <!-- Baris Kontrol Atas: Tombol Kamera & Pilihan Mode Visualisasi -->
+            <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-6 mb-6 border-b border-slate-800">
+                
+                <!-- Kontrol Daya Kamera & Snapshot -->
+                <div class="flex flex-wrap items-center gap-3">
+                    <button id="btn-nyalakan" onclick="nyalakanKamera()" class="px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-sm flex items-center gap-2 transition-all shadow-lg shadow-emerald-900/30">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                        </svg>
+                        <span>Nyalakan Kamera</span>
+                    </button>
+
+                    <button id="btn-matikan" onclick="matikanKamera()" disabled class="px-5 py-2.5 rounded-xl bg-rose-600/80 hover:bg-rose-600 disabled:opacity-40 disabled:cursor-not-allowed text-white font-semibold text-sm flex items-center gap-2 transition-all">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636"/>
+                        </svg>
+                        <span>Matikan Kamera</span>
+                    </button>
+
+                    <button id="btn-snapshot" onclick="ambilSnapshot()" disabled class="px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 disabled:opacity-40 disabled:cursor-not-allowed text-slate-200 border border-slate-700 font-semibold text-sm flex items-center gap-2 transition-all">
+                        <svg class="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"/>
+                        </svg>
+                        <span>Ambil Cuplikan (PNG)</span>
+                    </button>
+                </div>
+
+                <!-- Indikator Status Kamera -->
+                <div class="flex items-center gap-2 text-xs font-mono-code bg-slate-950/70 px-3.5 py-2 rounded-xl border border-slate-800">
+                    <span id="lampu-status" class="w-2.5 h-2.5 rounded-full bg-slate-500"></span>
+                    <span id="teks-status" class="text-slate-400">Status: Kamera Nonaktif</span>
+                </div>
+            </div>
+
+            <!-- Pilihan 4 Mode Visualisasi Informatika -->
+            <div class="mb-6">
+                <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-3">
+                    Pilih Mode Pemrosesan Citra Digital:
+                </label>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+                    <button onclick="ubahMode('normal', this)" class="btn-mode active p-3.5 rounded-xl border border-blue-500 bg-blue-500/20 text-left transition-all">
+                        <span class="block text-xs font-mono-code text-blue-300">MODE 01</span>
+                        <span class="font-bold text-sm text-white">Normal (RGB Kamera)</span>
+                    </button>
+
+                    <button onclick="ubahMode('piksel', this)" class="btn-mode p-3.5 rounded-xl border border-slate-700 bg-slate-900/60 hover:bg-slate-800 text-left transition-all">
+                        <span class="block text-xs font-mono-code text-emerald-400">MODE 02</span>
+                        <span class="font-bold text-sm text-white">Piksel & Matriks RGB</span>
+                    </button>
+
+                    <button onclick="ubahMode('tepi', this)" class="btn-mode p-3.5 rounded-xl border border-slate-700 bg-slate-900/60 hover:bg-slate-800 text-left transition-all">
+                        <span class="block text-xs font-mono-code text-amber-400">MODE 03</span>
+                        <span class="font-bold text-sm text-white">Deteksi Tepi (Sobel AI)</span>
+                    </button>
+
+                    <button onclick="ubahMode('gerakan', this)" class="btn-mode p-3.5 rounded-xl border border-slate-700 bg-slate-900/60 hover:bg-slate-800 text-left transition-all">
+                        <span class="block text-xs font-mono-code text-purple-400">MODE 04</span>
+                        <span class="font-bold text-sm text-white">Deteksi Gerakan</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Area Utama: Layar Canvas Webcam (Kiri) + Panel Analisis Teori & Data (Kanan) -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                
+                <!-- Kolom Kiri (7 Kolom): Area Layar Video/Canvas -->
+                <div class="lg:col-span-7 space-y-4">
+                    <div class="relative w-full aspect-video bg-slate-950 rounded-2xl overflow-hidden border-2 border-slate-800 flex items-center justify-center shadow-inner">
+                        
+                        <!-- Elemen Video Tersembunyi (Sumber Stream Webcam) -->
+                        <video id="video-sumber" autoplay playsinline muted class="hidden"></video>
+
+                        <!-- Canvas Output (Menampilkan Hasil Pemrosesan Citra) -->
+                        <canvas id="canvas-output" class="w-full h-full object-cover hidden"></canvas>
+
+                        <!-- Tampilan Placeholder Sebelum Kamera Dinyalakan -->
+                        <div id="placeholder-kamera" class="text-center p-6 max-w-md space-y-4">
+                            <div class="w-16 h-16 rounded-2xl bg-slate-900 border border-slate-800 flex items-center justify-center mx-auto text-blue-400">
+                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-lg font-bold text-white">Kamera Belum Aktif</h3>
+                            <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
+                                Klik tombol <strong class="text-emerald-400">"Nyalakan Kamera"</strong> di atas dan izinkan akses kamera pada browser Anda untuk memulai eksperimen.
+                            </p>
+                            <!-- Kotak Pesan Error Jika Izin Ditolak / Kamera Tidak Ditemukan -->
+                            <div id="pesan-error-kamera" class="hidden p-3 rounded-xl bg-rose-500/15 border border-rose-500/40 text-rose-300 text-xs text-left"></div>
+                        </div>
+
+                        <!-- Overlay HUD Data Real-Time di Pojok Layar Canvas -->
+                        <div id="hud-overlay" class="hidden absolute bottom-3 left-3 right-3 flex flex-wrap items-center justify-between gap-2 bg-slate-950/80 backdrop-blur-md px-4 py-2.5 rounded-xl border border-slate-800/90 text-xs font-mono-code">
+                            <span id="hud-resolusi" class="text-slate-300">Resolusi: 640x480 px</span>
+                            <span id="hud-info-dinamis" class="text-emerald-400 font-semibold">Mode: Normal RGB</span>
+                        </div>
+                    </div>
+
+                    <!-- Indikator Khusus Mode 02: Pembacaan Nilai Piksel Tengah -->
+                    <div id="panel-data-rgb" class="hidden p-4 rounded-2xl bg-slate-950/80 border border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4">
+                        <div class="flex items-center gap-3">
+                            <div id="kotak-preview-warna" class="w-12 h-12 rounded-xl border-2 border-white/20 shadow-md" style="background-color: #3B82F6;"></div>
+                            <div>
+                                <p class="text-xs text-slate-400">Sampel Piksel Titik Tengah (Crosshair)</p>
+                                <p id="nilai-hex-teks" class="font-mono-code text-base font-bold text-white">HEX: #3B82F6</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-2 font-mono-code text-xs">
+                            <span id="val-r" class="px-3 py-1.5 rounded-lg bg-rose-500/20 text-rose-300 border border-rose-500/30 font-bold">R: 59</span>
+                            <span id="val-g" class="px-3 py-1.5 rounded-lg bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 font-bold">G: 130</span>
+                            <span id="val-b" class="px-3 py-1.5 rounded-lg bg-blue-500/20 text-blue-300 border border-blue-500/30 font-bold">B: 246</span>
+                        </div>
+                    </div>
+
+                    <!-- Indikator Khusus Mode 04: Tingkat Aktivitas Gerakan -->
+                    <div id="panel-data-gerakan" class="hidden p-4 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-2.5">
+                        <div class="flex items-center justify-between text-xs font-mono-code">
+                            <span class="text-slate-400">Status Sensor Gerak:</span>
+                            <span id="status-gerakan-badge" class="px-2.5 py-1 rounded-md bg-emerald-500/20 text-emerald-300 font-bold">
+                                AMAN / DIAM (0%)
+                            </span>
+                        </div>
+                        <div class="w-full h-3 bg-slate-900 rounded-full overflow-hidden border border-slate-800">
+                            <div id="bar-aktivitas-gerakan" class="h-full bg-emerald-500 transition-all duration-150" style="width: 0%;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kolom Kanan (5 Kolom): Panel Penjelasan Teori Informatika Dinamis -->
+                <div class="lg:col-span-5 bg-slate-950/75 rounded-2xl p-6 border border-slate-800 space-y-5">
+                    <div class="flex items-center justify-between border-b border-slate-800 pb-4">
+                        <span class="text-xs font-mono-code uppercase tracking-wider text-blue-400 font-bold">
+                            Konsep Informatika
+                        </span>
+                        <span id="badge-materi-terkait" class="text-[11px] bg-slate-800 text-slate-300 px-2.5 py-1 rounded-md">
+                            Representasi Data
+                        </span>
+                    </div>
+
+                    <!-- Judul & Penjelasan Teori (Otomatis Berubah Sesuai Mode) -->
+                    <div class="space-y-3">
+                        <h3 id="teori-judul" class="text-xl font-bold text-white">
+                            1. Citra Digital & Model Warna RGB
+                        </h3>
+                        <p id="teori-deskripsi" class="text-sm text-slate-300 leading-relaxed">
+                            Kamera menangkap cahaya melalui sensor dan mengubahnya menjadi jutaan titik kecil yang disebut <strong>piksel (picture element)</strong>. Setiap piksel menyimpan kombinasi tiga warna dasar cahaya: <strong>Red (Merah), Green (Hijau), dan Blue (Biru)</strong> dengan rentang nilai 0 hingga 255 (8-bit per kanal).
+                        </p>
+                    </div>
+
+                    <!-- Kotak Rumus / Logika Algoritma -->
+                    <div class="p-4 rounded-xl bg-slate-900 border border-slate-800/90 space-y-2">
+                        <span class="text-xs font-semibold text-amber-400 block">Cara Kerja di Balik Layar:</span>
+                        <p id="teori-algoritma" class="text-xs font-mono-code text-slate-300 leading-relaxed">
+                            1 Piksel = [R, G, B]<br>
+                            Putih = [255, 255, 255]<br>
+                            Hitam = [0, 0, 0]<br>
+                            Total kombinasi = 256 × 256 × 256 = 16,7 Juta Warna.
+                        </p>
+                    </div>
+
+                    <!-- Pertanyaan Refleksi untuk Siswa -->
+                    <div class="p-4 rounded-xl bg-blue-500/10 border border-blue-500/20">
+                        <span class="text-xs font-bold text-blue-300 block mb-1">💡 Tantangan Eksplorasi Siswa:</span>
+                        <p id="teori-tantangan" class="text-xs text-slate-300 leading-relaxed">
+                            Coba pindah ke <strong>Mode 02 (Piksel & Matriks RGB)</strong> lalu arahkan benda berwarna merah, hijau, atau kertas putih ke titik bidik tengah layar untuk melihat perubahan angkanya!
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- =================================================================
+         7. BAGIAN PROYEK & TUGAS PRAKTIKUM SISWA
+         ================================================================= -->
+    <section id="proyek" class="py-20 bg-slate-900/40 border-t border-slate-800/80 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
             
             <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
                 <div>
-                    <span class="text-sm font-semibold text-indigo-400 uppercase tracking-wider">Etalase Karya</span>
+                    <span class="text-sm font-semibold text-emerald-400 uppercase tracking-wider">Lembar Kerja & Portofolio</span>
                     <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-1">
-                        Sorotan Proyek & Konten
+                        Ide Praktikum & Proyek Siswa
                     </h2>
                 </div>
 
                 <!-- Tombol Filter Kategori -->
                 <div class="flex flex-wrap gap-2">
-                    <button onclick="filterKarya('semua', this)" class="tombol-filter active px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-indigo-600 text-white transition-all">
-                        Semua
+                    <button onclick="filterKarya('semua', this)" class="tombol-filter active px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-blue-600 text-white transition-all">
+                        Semua Modul
                     </button>
-                    <button onclick="filterKarya('aplikasi', this)" class="tombol-filter px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all">
-                        Aplikasi Web
+                    <button onclick="filterKarya('visi', this)" class="tombol-filter px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all">
+                        Visi Komputer
                     </button>
-                    <button onclick="filterKarya('desain', this)" class="tombol-filter px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all">
-                        Desain Kreatif
+                    <button onclick="filterKarya('literasi', this)" class="tombol-filter px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all">
+                        Literasi Digital
                     </button>
-                    <button onclick="filterKarya('edukasi', this)" class="tombol-filter px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all">
-                        Edukasi
+                    <button onclick="filterKarya('algoritma', this)" class="tombol-filter px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all">
+                        Algoritma
                     </button>
                 </div>
             </div>
 
-            <!-- Grid Daftar Karya -->
-            <div id="daftar-karya" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Grid Daftar Tugas/Proyek -->
+            <div id="daftar-karya" class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 
-                <!-- EDIT ITEM KARYA 1 DI SINI -->
-                <div data-kategori="aplikasi" class="item-karya kartu-kaca rounded-2xl overflow-hidden flex flex-col">
-                    <div class="h-48 bg-gradient-to-br from-indigo-600/40 via-slate-900 to-purple-700/40 flex items-center justify-center p-6 border-b border-slate-800">
+                <!-- EDIT PROYEK 1 DI SINI -->
+                <div data-kategori="visi" class="item-karya kartu-kaca rounded-2xl overflow-hidden flex flex-col">
+                    <div class="h-40 bg-gradient-to-br from-blue-600/30 via-slate-900 to-cyan-700/30 flex items-center justify-center p-6 border-b border-slate-800">
                         <div class="text-center">
-                            <span class="px-3 py-1 rounded-full text-xs font-semibold bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">
-                                Aplikasi Web
+                            <span class="px-3 py-1 rounded-full text-xs font-semibold bg-blue-500/20 text-blue-300 border border-blue-500/30">
+                                Praktikum Lab Webcam
                             </span>
-                            <p class="mt-3 text-lg font-bold text-white">Sistem Manajemen Komunitas</p>
+                            <p class="mt-2.5 text-lg font-bold text-white">Eksperimen Matriks Warna RGB</p>
                         </div>
                     </div>
                     <div class="p-6 flex-1 flex flex-col justify-between">
                         <p class="text-slate-400 text-sm leading-relaxed">
-                            Platform terpadu untuk mengelola anggota, jadwal kegiatan, serta dokumentasi acara secara praktis dan transparan.
+                            Siswa mencatat nilai RGB dan kode Hex dari 5 benda berbeda di sekitar kelas menggunakan Mode 02, lalu membandingkan tingkat kecerahannya.
                         </p>
                         <div class="mt-5 pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-400">
-                            <span>Status: Aktif</span>
-                            <a href="#kontak" class="text-indigo-400 hover:text-indigo-300 font-semibold">Lihat Detail →</a>
+                            <span>Output: Laporan & Cuplikan PNG</span>
+                            <a href="#lab-webcam" class="text-blue-400 hover:text-blue-300 font-semibold">Praktikkan →</a>
                         </div>
                     </div>
                 </div>
 
-                <!-- EDIT ITEM KARYA 2 DI SINI -->
-                <div data-kategori="desain" class="item-karya kartu-kaca rounded-2xl overflow-hidden flex flex-col">
-                    <div class="h-48 bg-gradient-to-br from-emerald-600/40 via-slate-900 to-teal-700/40 flex items-center justify-center p-6 border-b border-slate-800">
+                <!-- EDIT PROYEK 2 DI SINI -->
+                <div data-kategori="literasi" class="item-karya kartu-kaca rounded-2xl overflow-hidden flex flex-col">
+                    <div class="h-40 bg-gradient-to-br from-emerald-600/30 via-slate-900 to-teal-700/30 flex items-center justify-center p-6 border-b border-slate-800">
                         <div class="text-center">
                             <span class="px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
-                                Desain Kreatif
+                                Literasi Digital
                             </span>
-                            <p class="mt-3 text-lg font-bold text-white">Identitas Visual & UI Kit</p>
+                            <p class="mt-2.5 text-lg font-bold text-white">Audit Informasi & Anti-Deepfake</p>
                         </div>
                     </div>
                     <div class="p-6 flex-1 flex flex-col justify-between">
                         <p class="text-slate-400 text-sm leading-relaxed">
-                            Kumpulan komponen antarmuka modern yang memadukan estetika warna harmonis dengan kenyamanan pembaca.
+                            Menganalisis keaslian gambar dan berita viral di media sosial menggunakan teknik penelusuran balik dan verifikasi silang sumber resmi.
                         </p>
                         <div class="mt-5 pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-400">
-                            <span>Status: Selesai</span>
-                            <a href="#kontak" class="text-emerald-400 hover:text-emerald-300 font-semibold">Lihat Detail →</a>
+                            <span>Output: Infografis Digital</span>
+                            <a href="#kontak" class="text-emerald-400 hover:text-emerald-300 font-semibold">Kirim Tugas →</a>
                         </div>
                     </div>
                 </div>
 
-                <!-- EDIT ITEM KARYA 3 DI SINI -->
-                <div data-kategori="edukasi" class="item-karya kartu-kaca rounded-2xl overflow-hidden flex flex-col">
-                    <div class="h-48 bg-gradient-to-br from-amber-600/40 via-slate-900 to-orange-700/40 flex items-center justify-center p-6 border-b border-slate-800">
+                <!-- EDIT PROYEK 3 DI SINI -->
+                <div data-kategori="algoritma" class="item-karya kartu-kaca rounded-2xl overflow-hidden flex flex-col">
+                    <div class="h-40 bg-gradient-to-br from-amber-600/30 via-slate-900 to-orange-700/30 flex items-center justify-center p-6 border-b border-slate-800">
                         <div class="text-center">
                             <span class="px-3 py-1 rounded-full text-xs font-semibold bg-amber-500/20 text-amber-300 border border-amber-500/30">
-                                Edukasi
+                                Algoritma & Pemrograman
                             </span>
-                            <p class="mt-3 text-lg font-bold text-white">Modul Belajar Pemrograman</p>
+                            <p class="mt-2.5 text-lg font-bold text-white">Simulasi Sensor Keamanan Ruangan</p>
                         </div>
                     </div>
                     <div class="p-6 flex-1 flex flex-col justify-between">
                         <p class="text-slate-400 text-sm leading-relaxed">
-                            Panduan langkah demi langkah bagi pemula yang ingin memahami dasar pembuatan website dari nol hingga mahir.
+                            Menguji ambang batas (threshold) deteksi gerakan pada Mode 04 untuk merancang logika algoritma alarm otomatis sederhana.
                         </p>
                         <div class="mt-5 pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-400">
-                            <span>Status: Terbuka</span>
-                            <a href="#kontak" class="text-amber-400 hover:text-amber-300 font-semibold">Lihat Detail →</a>
+                            <span>Output: Flowchart & Analisis</span>
+                            <a href="#lab-webcam" class="text-amber-400 hover:text-amber-300 font-semibold">Uji Sensor →</a>
                         </div>
                     </div>
                 </div>
@@ -494,65 +680,64 @@
     </section>
 
     <!-- =================================================================
-         8. BAGIAN HUBUNGI KAMI / AJAKAN KOLABORASI (CTA & FORMULIR)
+         8. BAGIAN KONTAK PENGAJAR & DISKUSI KELAS
          ================================================================= -->
     <section id="kontak" class="py-24 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
         <div class="kartu-kaca rounded-3xl p-8 sm:p-12 relative overflow-hidden">
             
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
                 
-                <!-- Kolom Kiri: Info Kontak -->
+                <!-- Kolom Kiri: Info Pengajar / Portal -->
                 <div class="lg:col-span-6 space-y-5">
-                    <span class="text-xs font-bold uppercase tracking-widest text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-full">
-                        Mari Terhubung
+                    <span class="text-xs font-bold uppercase tracking-widest text-blue-400 bg-blue-500/10 px-3 py-1 rounded-full">
+                        Ruang Konsultasi Informatika
                     </span>
-                    <!-- EDIT DI SINI: Judul Ajakan Kontak -->
+                    <!-- EDIT DI SINI: Nama Guru / Pengelola Portal -->
                     <h2 class="text-3xl sm:text-4xl font-extrabold text-white leading-tight">
-                        Punya Pertanyaan atau Ingin Berkolaborasi?
+                        Ada Pertanyaan Seputar Materi atau Praktikum?
                     </h2>
                     <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
-                        Kami sangat senang mendengar masukan, ide, ataupun ajakan kerja sama dari Anda. Silakan kirim pesan melalui formulir di samping atau hubungi kontak langsung kami.
+                        Gunakan formulir di samping untuk berdiskusi mengenai materi Informatika, mengirimkan hasil observasi Lab Webcam, atau memberikan saran pengembangan portal belajar ini.
                     </p>
 
-                    <!-- EDIT DI SINI: Detail Email & Lokasi Anda -->
+                    <!-- EDIT DI SINI: Detail Pengajar & Sekolah -->
                     <div class="space-y-3 pt-2 text-sm text-slate-300">
                         <div class="flex items-center gap-3">
-                            <div class="w-9 h-9 rounded-lg bg-indigo-500/20 text-indigo-400 flex items-center justify-center">
-                                ✉️
+                            <div class="w-9 h-9 rounded-lg bg-blue-500/20 text-blue-400 flex items-center justify-center font-bold">
+                                Guru
                             </div>
-                            <span>halo@karsadigital.id</span>
+                            <span>Tim Pengajar Informatika SMA</span>
                         </div>
                         <div class="flex items-center gap-3">
-                            <div class="w-9 h-9 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center">
-                                📍
+                            <div class="w-9 h-9 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold">
+                                Web
                             </div>
-                            <span>Jakarta, Indonesia</span>
+                            <span>Dihosting menggunakan GitHub Pages</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Kolom Kanan: Formulir Pesan Cepat -->
+                <!-- Kolom Kanan: Formulir Pesan -->
                 <div class="lg:col-span-6">
                     <form id="form-pesan" onsubmit="kirimPesan(event)" class="space-y-4 bg-slate-900/80 p-6 rounded-2xl border border-slate-800">
                         <div>
-                            <label for="nama" class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1.5">Nama Lengkap</label>
-                            <input type="text" id="nama" required placeholder="Masukkan nama Anda" class="w-full px-4 py-3 rounded-xl bg-slate-800/90 border border-slate-700 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-indigo-500">
+                            <label for="nama" class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1.5">Nama Siswa / Pengunjung</label>
+                            <input type="text" id="nama" required placeholder="Contoh: Budi Santoso - XI IPA 2" class="w-full px-4 py-3 rounded-xl bg-slate-800/90 border border-slate-700 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-blue-500">
                         </div>
                         <div>
-                            <label for="email" class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1.5">Alamat Email</label>
-                            <input type="email" id="email" required placeholder="nama@email.com" class="w-full px-4 py-3 rounded-xl bg-slate-800/90 border border-slate-700 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-indigo-500">
+                            <label for="email" class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1.5">Email</label>
+                            <input type="email" id="email" required placeholder="nama@sekolah.sch.id" class="w-full px-4 py-3 rounded-xl bg-slate-800/90 border border-slate-700 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-blue-500">
                         </div>
                         <div>
-                            <label for="pesan" class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1.5">Pesan Anda</label>
-                            <textarea id="pesan" rows="3" required placeholder="Tulis pesan atau pertanyaan Anda di sini..." class="w-full px-4 py-3 rounded-xl bg-slate-800/90 border border-slate-700 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-indigo-500"></textarea>
+                            <label for="pesan" class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1.5">Pertanyaan / Laporan Praktikum</label>
+                            <textarea id="pesan" rows="3" required placeholder="Tuliskan catatan hasil eksperimen RGB atau pertanyaan Anda..." class="w-full px-4 py-3 rounded-xl bg-slate-800/90 border border-slate-700 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-blue-500"></textarea>
                         </div>
                         <button type="submit" class="tombol-utama w-full py-3.5 rounded-xl font-semibold text-white text-sm">
-                            Kirim Pesan Sekarang
+                            Kirim Pesan
                         </button>
 
-                        <!-- Notifikasi Sukses (Muncul saat tombol diklik) -->
                         <div id="notifikasi-sukses" class="hidden p-3.5 rounded-xl bg-emerald-500/20 border border-emerald-500/40 text-emerald-300 text-xs text-center font-medium">
-                            Terima kasih! Pesan Anda telah tercatat. Kami akan segera menghubungi Anda.
+                            Pesan berhasil dicatat! Terima kasih telah berpartisipasi dalam pembelajaran Informatika.
                         </div>
                     </form>
                 </div>
@@ -562,28 +747,43 @@
     </section>
 
     <!-- =================================================================
-         9. BAGIAN KAKI WEBSITE (FOOTER)
+         9. BAGIAN FOOTER (CATATAN PRIVASI KAMERA & HAK CIPTA)
          ================================================================= -->
-    <footer class="border-t border-slate-800/80 py-10 px-4 sm:px-6 lg:px-8 text-center text-sm text-slate-400">
-        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-            <!-- EDIT DI SINI: Nama Hak Cipta / Pembuat -->
-            <p>© 2026 <strong class="text-white">KarsaDigital</strong>. Dibuat dengan penuh semangat.</p>
+    <footer class="border-t border-slate-800/80 py-12 px-4 sm:px-6 lg:px-8 text-sm text-slate-400 bg-slate-950/60">
+        <div class="max-w-7xl mx-auto space-y-6">
             
-            <!-- EDIT DI SINI: Tautan Sosial Media -->
-            <div class="flex items-center space-x-6">
-                <a href="#" class="hover:text-indigo-400 transition-colors">Instagram</a>
-                <a href="#" class="hover:text-indigo-400 transition-colors">LinkedIn</a>
-                <a href="#" class="hover:text-indigo-400 transition-colors">GitHub</a>
-                <a href="#" class="hover:text-indigo-400 transition-colors">YouTube</a>
+            <!-- Kotak Jaminan Privasi Webcam -->
+            <div class="p-4 rounded-2xl bg-emerald-950/30 border border-emerald-800/40 flex flex-col sm:flex-row items-start sm:items-center gap-3 text-xs text-emerald-200/90">
+                <span class="px-2.5 py-1 rounded-md bg-emerald-500/20 text-emerald-300 font-bold uppercase shrink-0">
+                    Catatan Privasi & Keamanan
+                </span>
+                <p>
+                    Seluruh pemrosesan video webcam pada <strong>Lab Visi Komputer</strong> berjalan 100% secara lokal di dalam memori browser perangkat Anda menggunakan HTML5 Canvas. Tidak ada gambar atau video yang direkam maupun dikirim ke server mana pun.
+                </p>
+            </div>
+
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-2">
+                <!-- EDIT DI SINI: Nama Hak Cipta / Pembuat -->
+                <p>© 2026 <strong class="text-white">InfoLab SMA</strong> — Portal Pembelajaran Informatika.</p>
+                
+                <!-- Tautan Navigasi Bawah -->
+                <div class="flex items-center space-x-6">
+                    <a href="#beranda" class="hover:text-blue-400 transition-colors">Beranda</a>
+                    <a href="#materi" class="hover:text-blue-400 transition-colors">Materi</a>
+                    <a href="#lab-webcam" class="hover:text-emerald-400 transition-colors">Lab Webcam</a>
+                    <a href="#kontak" class="hover:text-blue-400 transition-colors">Kontak</a>
+                </div>
             </div>
         </div>
     </footer>
 
     <!-- =================================================================
-         10. KODE JAVASCRIPT RINGAN (UNTUK MENU HP, FILTER, & FORMULIR)
+         10. KODE JAVASCRIPT (LOGIKA WEBCAM VISI KOMPUTER & INTERAKSI)
          ================================================================= -->
     <script>
-        // 1. Pengaturan Buka/Tutup Menu di HP
+        /* -----------------------------------------------------------------
+           A. PENGATURAN MENU MOBILE & FILTER KARTU
+           ----------------------------------------------------------------- */
         const tombolMenuHp = document.getElementById('tombol-menu-hp');
         const menuHp = document.getElementById('menu-hp');
         const ikonBuka = document.getElementById('ikon-buka');
@@ -595,17 +795,389 @@
             ikonTutup.classList.toggle('hidden');
         });
 
-        // 2. Fungsi Filter Kategori Karya
         function filterKarya(kategori, tombolDiklik) {
             const semuaItem = document.querySelectorAll('.item-karya');
             const semuaTombol = document.querySelectorAll('.tombol-filter');
 
-            // Ubah warna tombol yang sedang aktif
             semuaTombol.forEach(tombol => {
-                tombol.classList.remove('bg-indigo-600', 'text-white');
+                tombol.classList.remove('bg-blue-600', 'text-white');
                 tombol.classList.add('bg-slate-800', 'text-slate-300');
             });
             tombolDiklik.classList.remove('bg-slate-800', 'text-slate-300');
-            tombolDiklik.classList.add('bg-indigo-600', 'text-white');
+            tombolDiklik.classList.add('bg-blue-600', 'text-white');
 
-            // Tampilkan atau sembunyikan kartu sesuai kategori
+            semuaItem.forEach(item => {
+                if (kategori === 'semua' || item.getAttribute('data-kategori') === kategori) {
+                    item.style.display = 'flex';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        function kirimPesan(event) {
+            event.preventDefault();
+            const notifikasi = document.getElementById('notifikasi-sukses');
+            const form = document.getElementById('form-pesan');
+            notifikasi.classList.remove('hidden');
+            form.reset();
+            setTimeout(() => { notifikasi.classList.add('hidden'); }, 5000);
+        }
+
+        /* -----------------------------------------------------------------
+           B. LOGIKA APLIKASI WEBCAM: LAB VISI KOMPUTER INFORMATIKA
+           ----------------------------------------------------------------- */
+        const video = document.getElementById('video-sumber');
+        const canvas = document.getElementById('canvas-output');
+        const ctx = canvas.getContext('2d', { willReadFrequently: true });
+
+        // Canvas bantu untuk pemrosesan frame sebelumnya (deteksi gerakan)
+        const canvasSebelumnya = document.createElement('canvas');
+        const ctxSebelumnya = canvasSebelumnya.getContext('2d', { willReadFrequently: true });
+        let dataFrameSebelumnya = null;
+
+        let streamKamera = null;
+        let idAnimasi = null;
+        let modeAktif = 'normal'; // Pilihan: 'normal', 'piksel', 'tepi', 'gerakan'
+
+        // Data Penjelasan Teori Informatika untuk Setiap Mode
+        const databaseTeori = {
+            normal: {
+                badge: 'Representasi Data',
+                judul: '1. Citra Digital & Model Warna RGB',
+                deskripsi: 'Kamera menangkap cahaya melalui sensor dan mengubahnya menjadi jutaan titik kecil yang disebut <strong>piksel (picture element)</strong>. Setiap piksel menyimpan kombinasi tiga warna dasar cahaya: <strong>Red (Merah), Green (Hijau), dan Blue (Biru)</strong> dengan rentang nilai 0 hingga 255.',
+                algoritma: '1 Piksel = [R, G, B]\nPutih = [255, 255, 255]\nHitam = [0, 0, 0]\nTotal kombinasi = 256³ = 16,7 Juta Warna.',
+                tantangan: 'Pindah ke <strong>Mode 02 (Piksel & Matriks RGB)</strong> lalu arahkan benda berwarna cerah ke titik bidik tengah layar untuk melihat angka RGB-nya!'
+            },
+            piksel: {
+                badge: 'Matriks & Kompresi',
+                judul: '2. Kuantisasi Piksel & Kode Warna Hex',
+                deskripsi: 'Pada mode ini, resolusi gambar diperkecil menjadi blok-blok kotak besar (<em>downsampling</em>) agar struktur grid matriks terlihat jelas oleh mata manusia. Komputer membaca warna menggunakan angka desimal RGB maupun kode Heksadesimal (basis-16).',
+                algoritma: 'Blok Piksel = Rata-rata RGB area 16×16 px\nKonversi Hex = "#" + R(16) + G(16) + B(16)\nContoh: R=59 (3B), G=130 (82), B=246 (F6) → #3B82F6',
+                tantangan: 'Amati bagaimana wajah atau objek tetap dapat dikenali polanya meskipun jumlah kotak pikselnya dikurangi!'
+            },
+            tepi: {
+                badge: 'Computer Vision / AI',
+                judul: '3. Deteksi Tepi (Edge Detection)',
+                deskripsi: 'Bagaimana Kecerdasan Artifisial (AI) mengenali bentuk wajah, rambu lalu lintas, atau tulisan? Langkah pertamanya adalah mencari <strong>perubahan kontras kecerahan yang drastis</strong> antar piksel bertetangga untuk menemukan garis tepi (kontur) objek.',
+                algoritma: '1. Ubah RGB ke Grayscale: Y = 0.299R + 0.587G + 0.114B\n2. Hitung selisih kecerahan piksel kanan & bawah\n3. Jika selisih > Ambang Batas (Threshold) → Gambar garis hijau',
+                tantangan: 'Coba angkat tangan Anda di depan kamera dengan latar belakang polos. Perhatikan bagaimana garis jari tangan terdeteksi!'
+            },
+            gerakan: {
+                badge: 'Analisis Video & Sensor',
+                judul: '4. Deteksi Gerakan (Frame Differencing)',
+                deskripsi: 'Video sebenarnya adalah kumpulan gambar diam (frame) yang diputar cepat (misalnya 30 frame per detik). Algoritma deteksi gerakan membandingkan nilai piksel pada <strong>Frame Sekarang (t)</strong> dengan <strong>Frame Sebelumnya (t-1)</strong>.',
+                algoritma: 'Selisih = |Piksel(t) - Piksel(t-1)|\nJika Selisih > 35 → Piksel dianggap bergerak\nPersentase Gerak = (Piksel Bergerak / Total Piksel) × 100%',
+                tantangan: 'Cobalah diam membeku selama 3 detik hingga status menjadi AMAN, lalu lambaikan tangan untuk memicu indikator gerakan!'
+            }
+        };
+
+        // Fungsi Mengubah Mode Visualisasi & Memperbarui Panel Teori
+        function ubahMode(modeBaru, elemenTombol) {
+            modeAktif = modeBaru;
+
+            // Perbarui tampilan tombol mode aktif
+            document.querySelectorAll('.btn-mode').forEach(btn => {
+                btn.classList.remove('border-blue-500', 'bg-blue-500/20');
+                btn.classList.add('border-slate-700', 'bg-slate-900/60');
+            });
+            elemenTombol.classList.remove('border-slate-700', 'bg-slate-900/60');
+            elemenTombol.classList.add('border-blue-500', 'bg-blue-500/20');
+
+            // Tampilkan/sembunyikan panel indikator khusus
+            document.getElementById('panel-data-rgb').classList.toggle('hidden', modeBaru !== 'piksel');
+            document.getElementById('panel-data-gerakan').classList.toggle('hidden', modeBaru !== 'gerakan');
+
+            // Reset buffer gerakan saat berpindah mode
+            dataFrameSebelumnya = null;
+
+            // Perbarui teks penjelasan teori Informatika di panel kanan
+            const info = databaseTeori[modeBaru];
+            document.getElementById('badge-materi-terkait').textContent = info.badge;
+            document.getElementById('teori-judul').textContent = info.judul;
+            document.getElementById('teori-deskripsi').innerHTML = info.deskripsi;
+            document.getElementById('teori-algoritma').innerText = info.algoritma;
+            document.getElementById('teori-tantangan').innerHTML = info.tantangan;
+
+            // Perbarui teks HUD layar
+            const namaModeLabel = {
+                normal: 'Mode 01: Normal RGB',
+                piksel: 'Mode 02: Matriks Piksel & Hex',
+                tepi: 'Mode 03: Deteksi Tepi AI',
+                gerakan: 'Mode 04: Sensor Gerakan'
+            };
+            document.getElementById('hud-info-dinamis').textContent = namaModeLabel[modeBaru];
+        }
+
+        // Fungsi Menyalakan Webcam
+        async function nyalakanKamera() {
+            const pesanError = document.getElementById('pesan-error-kamera');
+            pesanError.classList.add('hidden');
+
+            // Cek dukungan browser
+            if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+                pesanError.textContent = 'Browser Anda tidak mendukung akses webcam atau halaman tidak dibuka melalui HTTPS / localhost.';
+                pesanError.classList.remove('hidden');
+                return;
+            }
+
+            try {
+                // Meminta izin akses kamera depan
+                streamKamera = await navigator.mediaDevices.getUserMedia({
+                    video: { width: { ideal: 640 }, height: { ideal: 480 }, facingMode: 'user' },
+                    audio: false
+                });
+
+                video.srcObject = streamKamera;
+                await video.play();
+
+                // Atur ukuran canvas sesuai resolusi video
+                const lebar = video.videoWidth || 640;
+                const tinggi = video.videoHeight || 480;
+                canvas.width = lebar;
+                canvas.height = tinggi;
+                canvasSebelumnya.width = lebar;
+                canvasSebelumnya.height = tinggi;
+
+                // Perbarui UI tampilan aktif
+                document.getElementById('placeholder-kamera').classList.add('hidden');
+                canvas.classList.remove('hidden');
+                document.getElementById('hud-overlay').classList.remove('hidden');
+                document.getElementById('hud-resolusi').textContent = `Resolusi: ${lebar}×${tinggi} px (${(lebar * tinggi).toLocaleString('id-ID')} piksel)`;
+
+                // Atur status tombol & lampu indikator
+                document.getElementById('btn-nyalakan').disabled = true;
+                document.getElementById('btn-nyalakan').classList.add('opacity-50', 'cursor-not-allowed');
+                document.getElementById('btn-matikan').disabled = false;
+                document.getElementById('btn-snapshot').disabled = false;
+
+                document.getElementById('lampu-status').classList.remove('bg-slate-500');
+                document.getElementById('lampu-status').classList.add('bg-emerald-400', 'animate-pulse');
+                document.getElementById('teks-status').textContent = 'Status: Kamera Aktif (Memproses Lokal)';
+                document.getElementById('teks-status').classList.replace('text-slate-400', 'text-emerald-300');
+
+                // Mulai loop pemrosesan frame
+                prosesFrameVideo();
+
+            } catch (err) {
+                console.error('Gagal mengakses kamera:', err);
+                let keterangan = 'Izin kamera ditolak atau perangkat kamera tidak ditemukan.';
+                if (err.name === 'NotAllowedError') {
+                    keterangan = 'Akses kamera diblokir. Silakan klik ikon gembok/kamera di bilah alamat browser dan pilih "Izinkan (Allow)".';
+                } else if (err.name === 'NotFoundError') {
+                    keterangan = 'Tidak ada perangkat webcam yang terdeteksi pada komputer/HP Anda.';
+                }
+                pesanError.textContent = keterangan;
+                pesanError.classList.remove('hidden');
+            }
+        }
+
+        // Fungsi Mematikan Webcam
+        function matikanKamera() {
+            if (idAnimasi) {
+                cancelAnimationFrame(idAnimasi);
+                idAnimasi = null;
+            }
+            if (streamKamera) {
+                streamKamera.getTracks().forEach(track => track.stop());
+                streamKamera = null;
+            }
+            video.srcObject = null;
+            dataFrameSebelumnya = null;
+
+            // Kembalikan UI ke kondisi awal
+            canvas.classList.add('hidden');
+            document.getElementById('hud-overlay').classList.add('hidden');
+            document.getElementById('placeholder-kamera').classList.remove('hidden');
+
+            document.getElementById('btn-nyalakan').disabled = false;
+            document.getElementById('btn-nyalakan').classList.remove('opacity-50', 'cursor-not-allowed');
+            document.getElementById('btn-matikan').disabled = true;
+            document.getElementById('btn-snapshot').disabled = true;
+
+            document.getElementById('lampu-status').classList.remove('bg-emerald-400', 'animate-pulse');
+            document.getElementById('lampu-status').classList.add('bg-slate-500');
+            document.getElementById('teks-status').textContent = 'Status: Kamera Nonaktif';
+            document.getElementById('teks-status').classList.replace('text-emerald-300', 'text-slate-400');
+        }
+
+        // Loop Utama Pemrosesan Citra Real-Time
+        function prosesFrameVideo() {
+            if (!streamKamera) return;
+
+            const w = canvas.width;
+            const h = canvas.height;
+
+            // Gambar frame video secara cermin (mirror) agar natural seperti cermin
+            ctx.save();
+            ctx.scale(-1, 1);
+            ctx.drawImage(video, -w, 0, w, h);
+            ctx.restore();
+
+            // Terapkan algoritma sesuai mode Informatika yang dipilih
+            if (modeAktif === 'piksel') {
+                terapkanModePiksel(w, h);
+            } else if (modeAktif === 'tepi') {
+                terapkanModeDeteksiTepi(w, h);
+            } else if (modeAktif === 'gerakan') {
+                terapkanModeDeteksiGerakan(w, h);
+            }
+
+            idAnimasi = requestAnimationFrame(prosesFrameVideo);
+        }
+
+        // Algoritma Mode 02: Representasi Piksel & Pembacaan RGB Tengah
+        function terapkanModePiksel(w, h) {
+            const ukuranBlok = 16; // Ukuran kotak piksel (16x16 px)
+            const frameData = ctx.getImageData(0, 0, w, h);
+            const data = frameData.data;
+
+            for (let y = 0; y < h; y += ukuranBlok) {
+                for (let x = 0; x < w; x += ukuranBlok) {
+                    const indeks = (y * w + x) * 4;
+                    const r = data[indeks];
+                    const g = data[indeks + 1];
+                    const b = data[indeks + 2];
+
+                    ctx.fillStyle = `rgb(${r}, ${g}, ${b})`;
+                    ctx.fillRect(x, y, ukuranBlok, ukuranBlok);
+
+                    // Garis tipis pembatas grid matriks
+                    ctx.strokeStyle = 'rgba(15, 23, 42, 0.25)';
+                    ctx.strokeRect(x, y, ukuranBlok, ukuranBlok);
+                }
+            }
+
+            // Ambil sampel warna tepat di titik tengah (crosshair)
+            const tengahX = Math.floor(w / 2);
+            const tengahY = Math.floor(h / 2);
+            const idxTengah = (tengahY * w + tengahX) * 4;
+            const rTengah = data[idxTengah];
+            const gTengah = data[idxTengah + 1];
+            const bTengah = data[idxTengah + 2];
+
+            // Konversi ke kode Hexadecimal
+            const keHex = (n) => n.toString(16).padStart(2, '0').toUpperCase();
+            const kodeHex = `#${keHex(rTengah)}${keHex(gTengah)}${keHex(bTengah)}`;
+
+            // Perbarui tampilan panel nilai RGB & Hex
+            document.getElementById('kotak-preview-warna').style.backgroundColor = kodeHex;
+            document.getElementById('nilai-hex-teks').textContent = `HEX: ${kodeHex}`;
+            document.getElementById('val-r').textContent = `R: ${rTengah}`;
+            document.getElementById('val-g').textContent = `G: ${gTengah}`;
+            document.getElementById('val-b').textContent = `B: ${bTengah}`;
+
+            // Gambar titik bidik (Crosshair) di tengah layar
+            ctx.strokeStyle = '#FFFFFF';
+            ctx.lineWidth = 2;
+            ctx.strokeRect(tengahX - 12, tengahY - 12, 24, 24);
+            ctx.strokeStyle = '#000000';
+            ctx.lineWidth = 1;
+            ctx.strokeRect(tengahX - 14, tengahY - 14, 28, 28);
+        }
+
+        // Algoritma Mode 03: Deteksi Tepi (Edge Detection Sederhana)
+        function terapkanModeDeteksiTepi(w, h) {
+            const frameData = ctx.getImageData(0, 0, w, h);
+            const src = frameData.data;
+            const output = ctx.createImageData(w, h);
+            const dst = output.data;
+
+            // Konversi ke array tingkat keabuan (Grayscale)
+            const gray = new Uint8Array(w * h);
+            for (let i = 0; i < src.length; i += 4) {
+                gray[i / 4] = 0.299 * src[i] + 0.587 * src[i + 1] + 0.114 * src[i + 2];
+            }
+
+            const ambangBatas = 28; // Sensitivitas garis tepi
+
+            for (let y = 0; y < h - 1; y++) {
+                for (let x = 0; x < w - 1; x++) {
+                    const pos = y * w + x;
+                    const gradX = Math.abs(gray[pos] - gray[pos + 1]);
+                    const gradY = Math.abs(gray[pos] - gray[pos + w]);
+                    const gradien = gradX + gradY;
+
+                    const idxDst = pos * 4;
+                    if (gradien > ambangBatas) {
+                        // Tampilkan garis tepi berwarna hijau neon siber
+                        dst[idxDst] = 52;      // R
+                        dst[idxDst + 1] = 211; // G
+                        dst[idxDst + 2] = 153; // B
+                        dst[idxDst + 3] = 255; // Alpha
+                    } else {
+                        // Latar belakang gelap agar kontras garis terlihat jelas
+                        dst[idxDst] = 9;
+                        dst[idxDst + 1] = 13;
+                        dst[idxDst + 2] = 22;
+                        dst[idxDst + 3] = 255;
+                    }
+                }
+            }
+
+            ctx.putImageData(output, 0, 0);
+        }
+
+        // Algoritma Mode 04: Deteksi Gerakan (Frame Differencing)
+        function terapkanModeDeteksiGerakan(w, h) {
+            const frameSekarang = ctx.getImageData(0, 0, w, h);
+            const dataSekarang = frameSekarang.data;
+
+            if (!dataFrameSebelumnya) {
+                dataFrameSebelumnya = new Uint8ClampedArray(dataSekarang);
+                return;
+            }
+
+            let jumlahPikselBergerak = 0;
+            const totalPikselSampel = (w * h) / 4; // Sampling setiap 4 piksel agar sangat ringan
+
+            for (let i = 0; i < dataSekarang.length; i += 16) {
+                const diffR = Math.abs(dataSekarang[i] - dataFrameSebelumnya[i]);
+                const diffG = Math.abs(dataSekarang[i + 1] - dataFrameSebelumnya[i + 1]);
+                const diffB = Math.abs(dataSekarang[i + 2] - dataFrameSebelumnya[i + 2]);
+                const rataDiff = (diffR + diffG + diffB) / 3;
+
+                if (rataDiff > 30) {
+                    jumlahPikselBergerak++;
+                    // Tandai area bergerak dengan sorotan warna amber/merah
+                    dataSekarang[i] = 245;
+                    dataSekarang[i + 1] = 158;
+                    dataSekarang[i + 2] = 11;
+                }
+            }
+
+            ctx.putImageData(frameSekarang, 0, 0);
+
+            // Simpan frame saat ini sebagai referensi frame berikutnya
+            dataFrameSebelumnya = new Uint8ClampedArray(dataSekarang);
+
+            // Hitung persentase gerakan
+            const persentase = Math.min(100, Math.round((jumlahPikselBergerak / totalPikselSampel) * 250));
+            const badge = document.getElementById('status-gerakan-badge');
+            const bar = document.getElementById('bar-aktivitas-gerakan');
+
+            bar.style.width = `${persentase}%`;
+
+            if (persentase > 12) {
+                badge.textContent = `TERDETEKSI GERAKAN! (${persentase}%)`;
+                badge.className = 'px-2.5 py-1 rounded-md bg-amber-500/20 text-amber-300 font-bold animate-pulse';
+                bar.className = 'h-full bg-amber-400 transition-all duration-150';
+            } else {
+                badge.textContent = `AMAN / DIAM (${persentase}%)`;
+                badge.className = 'px-2.5 py-1 rounded-md bg-emerald-500/20 text-emerald-300 font-bold';
+                bar.className = 'h-full bg-emerald-500 transition-all duration-150';
+            }
+        }
+
+        // Fungsi Mengunduh Hasil Eksperimen sebagai Gambar PNG
+        function ambilSnapshot() {
+            if (!streamKamera) return;
+            const linkUnduh = document.createElement('a');
+            const waktu = new Date().toISOString().slice(0, 19).replace(/[:T]/g, '-');
+            linkUnduh.download = `eksperimen-informatika-${modeAktif}-${waktu}.png`;
+            linkUnduh.href = canvas.toDataURL('image/png');
+            linkUnduh.click();
+        }
+    </script>
+</body>
+</html>
