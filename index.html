@@ -1,12 +1,611 @@
-<!doctype html>
-<html lang="id">
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Kelas Bu Sari</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- =================================================================
+         1. EDIT JUDUL WEBSITE DI SINI (Muncul di Tab Browser)
+         ================================================================= -->
+    <title>KarsaDigital — Ruang Inovasi & Karya Kreatif</title>
+
+    <!-- Menggunakan Font Google 'Plus Jakarta Sans' agar tampilan modern & rapi -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Memuat Tailwind CSS untuk tata letak responsif -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- =================================================================
+         2. PENGATURAN WARNA & GAYA (MUDAH DIEDIT)
+         Ubah kode warna HEX di bawah ini untuk mengganti suasana warna website
+         ================================================================= -->
+    <style>
+        :root {
+            /* Warna Latar Belakang Utama (Gelap Elegan) */
+            --bg-utama: #0B0F19;
+            --bg-kedua: #111827;
+            --bg-kartu: rgba(30, 41, 59, 0.55);
+
+            /* Warna Aksen (Ungu Indigo, Hijau Emerald, & Kuning Amber) */
+            --warna-primer: #6366F1;       /* Indigo cerah */
+            --warna-primer-hover: #4F46E5; 
+            --warna-sekunder: #10B981;     /* Emerald segar */
+            --warna-aksen: #F59E0B;        /* Amber hangat */
+
+            /* Warna Teks */
+            --teks-utama: #F8FAFC;
+            --teks-redup: #94A3B8;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-utama);
+            color: var(--teks-utama);
+            overflow-x: hidden;
+        }
+
+        /* Efek Kaca Transparan (Glassmorphism) untuk Navbar & Kartu */
+        .efek-kaca {
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .kartu-kaca {
+            background: var(--bg-kartu);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .kartu-kaca:hover {
+            transform: translateY(-6px);
+            border-color: rgba(99, 102, 241, 0.4);
+            box-shadow: 0 20px 40px -15px rgba(99, 102, 241, 0.2);
+        }
+
+        /* Efek Teks Gradasi */
+        .teks-gradasi {
+            background: linear-gradient(135deg, #818CF8 0%, #34D399 50%, #FBBF24 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Tombol Utama dengan Gradasi */
+        .tombol-utama {
+            background: linear-gradient(135deg, var(--warna-primer) 0%, #4338CA 100%);
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 25px -5px rgba(99, 102, 241, 0.4);
+        }
+
+        .tombol-utama:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px -5px rgba(99, 102, 241, 0.6);
+            filter: brightness(1.1);
+        }
+
+        /* Cahaya Latar Belakang Dekoratif */
+        .cahaya-latar {
+            position: absolute;
+            border-radius: 9999px;
+            filter: blur(100px);
+            z-index: -1;
+            opacity: 0.35;
+            pointer-events: none;
+        }
+
+        /* Animasi Mengambang Halus untuk Ilustrasi Hero */
+        @keyframes mengambang {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-12px); }
+        }
+        .animasi-mengambang {
+            animation: mengambang 5s ease-in-out infinite;
+        }
+    </style>
 </head>
-<body>
-  <h1>Selamat datang!</h1>
-  <p>Website BIMA.</p>
-</body>
-</html>
+<body class="antialiased selection:bg-indigo-500 selection:text-white">
+
+    <!-- Cahaya Dekoratif di Latar Belakang -->
+    <div class="cahaya-latar w-96 h-96 bg-indigo-600 top-[-50px] left-[-100px]"></div>
+    <div class="cahaya-latar w-96 h-96 bg-emerald-600 top-[300px] right-[-120px]"></div>
+
+    <!-- =================================================================
+         3. BAGIAN NAVIGASI (NAVBAR)
+         ================================================================= -->
+    <header class="fixed top-0 left-0 right-0 z-50 efek-kaca">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- EDIT DI SINI: Nama / Logo Website Anda -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500 via-purple-500 to-emerald-400 flex items-center justify-center text-white font-extrabold text-xl shadow-lg group-hover:scale-105 transition-transform">
+                        K
+                    </div>
+                    <span class="font-bold text-xl tracking-tight text-white">
+                        Karsa<span class="text-indigo-400">Digital</span>
+                    </span>
+                </a>
+
+                <!-- EDIT DI SINI: Menu Navigasi Desktop -->
+                <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-300">
+                    <a href="#beranda" class="hover:text-white transition-colors">Beranda</a>
+                    <a href="#tentang" class="hover:text-white transition-colors">Tentang Kami</a>
+                    <a href="#keunggulan" class="hover:text-white transition-colors">Fitur Utama</a>
+                    <a href="#karya" class="hover:text-white transition-colors">Sorotan Karya</a>
+                    <a href="#kontak" class="hover:text-white transition-colors">Kontak</a>
+                </nav>
+
+                <!-- EDIT DI SINI: Tombol Aksi di Pojok Kanan Atas -->
+                <div class="hidden md:flex items-center gap-4">
+                    <a href="#kontak" class="tombol-utama px-5 py-2.5 rounded-xl text-sm font-semibold text-white flex items-center gap-2">
+                        <span>Mulai Eksplorasi</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- Tombol Menu untuk HP (Mobile) -->
+                <div class="md:hidden">
+                    <button id="tombol-menu-hp" type="button" class="p-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 focus:outline-none" aria-label="Buka Menu">
+                        <svg id="ikon-buka" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                        <svg id="ikon-tutup" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Menu Dropdown untuk HP -->
+        <div id="menu-hp" class="hidden md:hidden bg-slate-900/95 border-b border-slate-800 px-4 pt-3 pb-6 space-y-3">
+            <a href="#beranda" class="block px-3 py-2 rounded-lg text-base font-medium text-slate-200 hover:bg-slate-800">Beranda</a>
+            <a href="#tentang" class="block px-3 py-2 rounded-lg text-base font-medium text-slate-200 hover:bg-slate-800">Tentang Kami</a>
+            <a href="#keunggulan" class="block px-3 py-2 rounded-lg text-base font-medium text-slate-200 hover:bg-slate-800">Fitur Utama</a>
+            <a href="#karya" class="block px-3 py-2 rounded-lg text-base font-medium text-slate-200 hover:bg-slate-800">Sorotan Karya</a>
+            <a href="#kontak" class="block px-3 py-2 rounded-lg text-base font-medium text-slate-200 hover:bg-slate-800">Kontak</a>
+            <div class="pt-2">
+                <a href="#kontak" class="tombol-utama w-full py-3 rounded-xl text-center font-semibold text-white block">
+                    Mulai Eksplorasi
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- =================================================================
+         4. BAGIAN HERO (PERKENALAN UTAMA WEBSITE)
+         ================================================================= -->
+    <section id="beranda" class="relative pt-32 pb-20 md:pt-40 md:pb-28 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <!-- Kolom Kiri: Teks Perkenalan -->
+            <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                
+                <!-- EDIT DI SINI: Label Pengumuman Kecil -->
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/30 text-indigo-300 text-xs sm:text-sm font-medium">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+                    <span>Selamat Datang di Platform Resmi Kami</span>
+                </div>
+
+                <!-- EDIT DI SINI: Judul Besar (Headline) -->
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
+                    Wujudkan Ide Kreatif Menjadi <span class="teks-gradasi">Solusi Digital</span> Berdampak.
+                </h1>
+
+                <!-- EDIT DI SINI: Deskripsi Singkat Tentang Website Anda -->
+                <p class="text-base sm:text-lg text-slate-400 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                    Selamat datang di <strong class="text-slate-200">KarsaDigital</strong>. Website ini adalah ruang kolaborasi, portofolio karya, dan pusat informasi layanan yang dirancang untuk membantu Anda mengenal visi serta inovasi yang kami bangun.
+                </p>
+
+                <!-- EDIT DI SINI: Tombol Aksi Utama & Kedua -->
+                <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+                    <a href="#keunggulan" class="tombol-utama w-full sm:w-auto px-7 py-4 rounded-xl font-semibold text-white flex items-center justify-center gap-2 text-base">
+                        <span>Pelajari Lebih Lanjut</span>
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </a>
+                    <a href="#karya" class="w-full sm:w-auto px-7 py-4 rounded-xl font-semibold text-slate-200 bg-slate-800/70 hover:bg-slate-800 border border-slate-700 transition-all text-base text-center">
+                        Lihat Galeri Karya
+                    </a>
+                </div>
+
+                <!-- EDIT DI SINI: Angka Statistik / Pencapaian Singkat -->
+                <div class="pt-6 border-t border-slate-800/80 grid grid-cols-3 gap-4 max-w-lg mx-auto lg:mx-0">
+                    <div>
+                        <p class="text-2xl sm:text-3xl font-bold text-white">100%</p>
+                        <p class="text-xs sm:text-sm text-slate-400">Desain Responsif</p>
+                    </div>
+                    <div>
+                        <p class="text-2xl sm:text-3xl font-bold text-emerald-400">24/7</p>
+                        <p class="text-xs sm:text-sm text-slate-400">Akses Informasi</p>
+                    </div>
+                    <div>
+                        <p class="text-2xl sm:text-3xl font-bold text-amber-400">50+</p>
+                        <p class="text-xs sm:text-sm text-slate-400">Proyek & Ide</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kolom Kanan: Ilustrasi Visual Kartu Interaktif -->
+            <div class="lg:col-span-5 relative">
+                <div class="animasi-mengambang relative mx-auto max-w-md lg:max-w-none">
+                    <!-- Bingkai Mockup Website Modern -->
+                    <div class="kartu-kaca rounded-2xl p-5 sm:p-6 shadow-2xl relative overflow-hidden">
+                        <!-- Bar Atas ala Jendela Browser -->
+                        <div class="flex items-center justify-between pb-4 mb-4 border-b border-slate-700/60">
+                            <div class="flex items-center gap-2">
+                                <span class="w-3 h-3 rounded-full bg-rose-500"></span>
+                                <span class="w-3 h-3 rounded-full bg-amber-400"></span>
+                                <span class="w-3 h-3 rounded-full bg-emerald-500"></span>
+                            </div>
+                            <span class="text-xs text-slate-400 font-mono bg-slate-900/70 px-3 py-1 rounded-md">
+                                karsadigital.id
+                            </span>
+                        </div>
+
+                        <!-- Isi Visual Mockup (Bisa diganti gambar jika mau) -->
+                        <div class="space-y-4">
+                            <div class="p-4 rounded-xl bg-gradient-to-r from-indigo-500/20 via-purple-500/15 to-emerald-500/20 border border-indigo-500/30">
+                                <span class="text-xs font-semibold uppercase tracking-wider text-indigo-300">Visi Utama</span>
+                                <h3 class="text-lg font-bold text-white mt-1">Membangun Ekosistem Digital yang Mudah Diakses</h3>
+                                <p class="text-xs text-slate-300 mt-1">Dirancang dengan antarmuka bersih, cepat, dan ramah pengguna.</p>
+                            </div>
+
+                            <div class="grid grid-cols-2 gap-3">
+                                <div class="p-4 rounded-xl bg-slate-800/60 border border-slate-700/50">
+                                    <div class="w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center mb-2">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                        </svg>
+                                    </div>
+                                    <p class="text-sm font-bold text-white">Mudah Diedit</p>
+                                    <p class="text-xs text-slate-400 mt-0.5">Struktur kode rapi & jelas</p>
+                                </div>
+
+                                <div class="p-4 rounded-xl bg-slate-800/60 border border-slate-700/50">
+                                    <div class="w-8 h-8 rounded-lg bg-amber-500/20 text-amber-400 flex items-center justify-center mb-2">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                                        </svg>
+                                    </div>
+                                    <p class="text-sm font-bold text-white">Performa Cepat</p>
+                                    <p class="text-xs text-slate-400 mt-0.5">Ringan di semua perangkat</p>
+                                </div>
+                            </div>
+
+                            <!-- Bar Progress Visual -->
+                            <div class="p-4 rounded-xl bg-slate-900/70 border border-slate-800">
+                                <div class="flex justify-between text-xs mb-2">
+                                    <span class="text-slate-300 font-medium">Kesiapan Peluncuran Website</span>
+                                    <span class="text-emerald-400 font-bold">Siap Digunakan!</span>
+                                </div>
+                                <div class="w-full h-2 bg-slate-800 rounded-full overflow-hidden">
+                                    <div class="w-11/12 h-full bg-gradient-to-r from-indigo-500 via-emerald-400 to-amber-400 rounded-full"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- =================================================================
+         5. BAGIAN TENTANG WEBSITE (CERITA SINGKAT)
+         ================================================================= -->
+    <section id="tentang" class="py-16 bg-slate-900/50 border-y border-slate-800/80">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+            <!-- EDIT DI SINI: Penjelasan Tentang Tujuan Website Anda -->
+            <span class="text-xs font-bold uppercase tracking-widest text-indigo-400 bg-indigo-500/10 px-3 py-1 rounded-full">
+                Tentang Website Ini
+            </span>
+            <h2 class="text-2xl sm:text-4xl font-bold text-white">
+                Mengapa Website Ini Dibuat?
+            </h2>
+            <p class="text-slate-300 text-base sm:text-lg leading-relaxed max-w-3xl mx-auto">
+                Website ini hadir sebagai jendela informasi utama untuk memperkenalkan profil, gagasan, serta berbagai proyek yang sedang kami kembangkan. Kami percaya bahwa kolaborasi yang hebat dimulai dari perkenalan yang hangat dan penyampaian informasi yang jernih.
+            </p>
+        </div>
+    </section>
+
+    <!-- =================================================================
+         6. BAGIAN FITUR / KEUNGGULAN UTAMA (3 KARTU)
+         ================================================================= -->
+    <section id="keunggulan" class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        
+        <!-- Judul Seksi -->
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+            <span class="text-sm font-semibold text-emerald-400 uppercase tracking-wider">Fokus & Layanan Kami</span>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-white">
+                Apa Saja yang Bisa Anda Temukan di Sini?
+            </h2>
+            <p class="text-slate-400 text-base">
+                Tiga pilar utama yang menjadi fondasi dari pengembangan platform ini.
+            </p>
+        </div>
+
+        <!-- Grid 3 Kartu Keunggulan -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            
+            <!-- EDIT KARTU 1 DI SINI -->
+            <div class="kartu-kaca rounded-2xl p-7 flex flex-col justify-between">
+                <div>
+                    <div class="w-14 h-14 rounded-2xl bg-indigo-500/20 border border-indigo-500/30 flex items-center justify-center text-indigo-400 mb-6">
+                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Inovasi & Ide Segar</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Menyajikan berbagai artikel, riset terapan, dan dokumentasi ide kreatif yang relevan dengan perkembangan teknologi masa kini.
+                    </p>
+                </div>
+                <div class="mt-6 pt-4 border-t border-slate-800 flex items-center text-xs font-semibold text-indigo-400">
+                    <span>Eksplorasi Gagasan</span>
+                </div>
+            </div>
+
+            <!-- EDIT KARTU 2 DI SINI -->
+            <div class="kartu-kaca rounded-2xl p-7 flex flex-col justify-between">
+                <div>
+                    <div class="w-14 h-14 rounded-2xl bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-emerald-400 mb-6">
+                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Galeri Proyek & Karya</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Menampilkan portofolio produk digital, desain antarmuka, maupun program kolaboratif yang telah selesai maupun sedang dikerjakan.
+                    </p>
+                </div>
+                <div class="mt-6 pt-4 border-t border-slate-800 flex items-center text-xs font-semibold text-emerald-400">
+                    <span>Portofolio Terkurasi</span>
+                </div>
+            </div>
+
+            <!-- EDIT KARTU 3 DI SINI -->
+            <div class="kartu-kaca rounded-2xl p-7 flex flex-col justify-between">
+                <div>
+                    <div class="w-14 h-14 rounded-2xl bg-amber-500/20 border border-amber-500/30 flex items-center justify-center text-amber-400 mb-6">
+                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Jaringan & Kolaborasi</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Membuka pintu komunikasi bagi pengunjung, rekan komunitas, maupun mitra yang ingin berdiskusi dan berkolaborasi bersama kami.
+                    </p>
+                </div>
+                <div class="mt-6 pt-4 border-t border-slate-800 flex items-center text-xs font-semibold text-amber-400">
+                    <span>Terbuka untuk Diskusi</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- =================================================================
+         7. BAGIAN SOROTAN KARYA / PROYEK (DENGAN FILTER INTERAKTIF)
+         ================================================================= -->
+    <section id="karya" class="py-20 bg-slate-900/40 border-t border-slate-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+                <div>
+                    <span class="text-sm font-semibold text-indigo-400 uppercase tracking-wider">Etalase Karya</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-1">
+                        Sorotan Proyek & Konten
+                    </h2>
+                </div>
+
+                <!-- Tombol Filter Kategori -->
+                <div class="flex flex-wrap gap-2">
+                    <button onclick="filterKarya('semua', this)" class="tombol-filter active px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-indigo-600 text-white transition-all">
+                        Semua
+                    </button>
+                    <button onclick="filterKarya('aplikasi', this)" class="tombol-filter px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all">
+                        Aplikasi Web
+                    </button>
+                    <button onclick="filterKarya('desain', this)" class="tombol-filter px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all">
+                        Desain Kreatif
+                    </button>
+                    <button onclick="filterKarya('edukasi', this)" class="tombol-filter px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all">
+                        Edukasi
+                    </button>
+                </div>
+            </div>
+
+            <!-- Grid Daftar Karya -->
+            <div id="daftar-karya" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- EDIT ITEM KARYA 1 DI SINI -->
+                <div data-kategori="aplikasi" class="item-karya kartu-kaca rounded-2xl overflow-hidden flex flex-col">
+                    <div class="h-48 bg-gradient-to-br from-indigo-600/40 via-slate-900 to-purple-700/40 flex items-center justify-center p-6 border-b border-slate-800">
+                        <div class="text-center">
+                            <span class="px-3 py-1 rounded-full text-xs font-semibold bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">
+                                Aplikasi Web
+                            </span>
+                            <p class="mt-3 text-lg font-bold text-white">Sistem Manajemen Komunitas</p>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            Platform terpadu untuk mengelola anggota, jadwal kegiatan, serta dokumentasi acara secara praktis dan transparan.
+                        </p>
+                        <div class="mt-5 pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-400">
+                            <span>Status: Aktif</span>
+                            <a href="#kontak" class="text-indigo-400 hover:text-indigo-300 font-semibold">Lihat Detail →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- EDIT ITEM KARYA 2 DI SINI -->
+                <div data-kategori="desain" class="item-karya kartu-kaca rounded-2xl overflow-hidden flex flex-col">
+                    <div class="h-48 bg-gradient-to-br from-emerald-600/40 via-slate-900 to-teal-700/40 flex items-center justify-center p-6 border-b border-slate-800">
+                        <div class="text-center">
+                            <span class="px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+                                Desain Kreatif
+                            </span>
+                            <p class="mt-3 text-lg font-bold text-white">Identitas Visual & UI Kit</p>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            Kumpulan komponen antarmuka modern yang memadukan estetika warna harmonis dengan kenyamanan pembaca.
+                        </p>
+                        <div class="mt-5 pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-400">
+                            <span>Status: Selesai</span>
+                            <a href="#kontak" class="text-emerald-400 hover:text-emerald-300 font-semibold">Lihat Detail →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- EDIT ITEM KARYA 3 DI SINI -->
+                <div data-kategori="edukasi" class="item-karya kartu-kaca rounded-2xl overflow-hidden flex flex-col">
+                    <div class="h-48 bg-gradient-to-br from-amber-600/40 via-slate-900 to-orange-700/40 flex items-center justify-center p-6 border-b border-slate-800">
+                        <div class="text-center">
+                            <span class="px-3 py-1 rounded-full text-xs font-semibold bg-amber-500/20 text-amber-300 border border-amber-500/30">
+                                Edukasi
+                            </span>
+                            <p class="mt-3 text-lg font-bold text-white">Modul Belajar Pemrograman</p>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            Panduan langkah demi langkah bagi pemula yang ingin memahami dasar pembuatan website dari nol hingga mahir.
+                        </p>
+                        <div class="mt-5 pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-400">
+                            <span>Status: Terbuka</span>
+                            <a href="#kontak" class="text-amber-400 hover:text-amber-300 font-semibold">Lihat Detail →</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- =================================================================
+         8. BAGIAN HUBUNGI KAMI / AJAKAN KOLABORASI (CTA & FORMULIR)
+         ================================================================= -->
+    <section id="kontak" class="py-24 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
+        <div class="kartu-kaca rounded-3xl p-8 sm:p-12 relative overflow-hidden">
+            
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+                
+                <!-- Kolom Kiri: Info Kontak -->
+                <div class="lg:col-span-6 space-y-5">
+                    <span class="text-xs font-bold uppercase tracking-widest text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-full">
+                        Mari Terhubung
+                    </span>
+                    <!-- EDIT DI SINI: Judul Ajakan Kontak -->
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white leading-tight">
+                        Punya Pertanyaan atau Ingin Berkolaborasi?
+                    </h2>
+                    <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                        Kami sangat senang mendengar masukan, ide, ataupun ajakan kerja sama dari Anda. Silakan kirim pesan melalui formulir di samping atau hubungi kontak langsung kami.
+                    </p>
+
+                    <!-- EDIT DI SINI: Detail Email & Lokasi Anda -->
+                    <div class="space-y-3 pt-2 text-sm text-slate-300">
+                        <div class="flex items-center gap-3">
+                            <div class="w-9 h-9 rounded-lg bg-indigo-500/20 text-indigo-400 flex items-center justify-center">
+                                ✉️
+                            </div>
+                            <span>halo@karsadigital.id</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-9 h-9 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center">
+                                📍
+                            </div>
+                            <span>Jakarta, Indonesia</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kolom Kanan: Formulir Pesan Cepat -->
+                <div class="lg:col-span-6">
+                    <form id="form-pesan" onsubmit="kirimPesan(event)" class="space-y-4 bg-slate-900/80 p-6 rounded-2xl border border-slate-800">
+                        <div>
+                            <label for="nama" class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1.5">Nama Lengkap</label>
+                            <input type="text" id="nama" required placeholder="Masukkan nama Anda" class="w-full px-4 py-3 rounded-xl bg-slate-800/90 border border-slate-700 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-indigo-500">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1.5">Alamat Email</label>
+                            <input type="email" id="email" required placeholder="nama@email.com" class="w-full px-4 py-3 rounded-xl bg-slate-800/90 border border-slate-700 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-indigo-500">
+                        </div>
+                        <div>
+                            <label for="pesan" class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1.5">Pesan Anda</label>
+                            <textarea id="pesan" rows="3" required placeholder="Tulis pesan atau pertanyaan Anda di sini..." class="w-full px-4 py-3 rounded-xl bg-slate-800/90 border border-slate-700 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-indigo-500"></textarea>
+                        </div>
+                        <button type="submit" class="tombol-utama w-full py-3.5 rounded-xl font-semibold text-white text-sm">
+                            Kirim Pesan Sekarang
+                        </button>
+
+                        <!-- Notifikasi Sukses (Muncul saat tombol diklik) -->
+                        <div id="notifikasi-sukses" class="hidden p-3.5 rounded-xl bg-emerald-500/20 border border-emerald-500/40 text-emerald-300 text-xs text-center font-medium">
+                            Terima kasih! Pesan Anda telah tercatat. Kami akan segera menghubungi Anda.
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- =================================================================
+         9. BAGIAN KAKI WEBSITE (FOOTER)
+         ================================================================= -->
+    <footer class="border-t border-slate-800/80 py-10 px-4 sm:px-6 lg:px-8 text-center text-sm text-slate-400">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <!-- EDIT DI SINI: Nama Hak Cipta / Pembuat -->
+            <p>© 2026 <strong class="text-white">KarsaDigital</strong>. Dibuat dengan penuh semangat.</p>
+            
+            <!-- EDIT DI SINI: Tautan Sosial Media -->
+            <div class="flex items-center space-x-6">
+                <a href="#" class="hover:text-indigo-400 transition-colors">Instagram</a>
+                <a href="#" class="hover:text-indigo-400 transition-colors">LinkedIn</a>
+                <a href="#" class="hover:text-indigo-400 transition-colors">GitHub</a>
+                <a href="#" class="hover:text-indigo-400 transition-colors">YouTube</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- =================================================================
+         10. KODE JAVASCRIPT RINGAN (UNTUK MENU HP, FILTER, & FORMULIR)
+         ================================================================= -->
+    <script>
+        // 1. Pengaturan Buka/Tutup Menu di HP
+        const tombolMenuHp = document.getElementById('tombol-menu-hp');
+        const menuHp = document.getElementById('menu-hp');
+        const ikonBuka = document.getElementById('ikon-buka');
+        const ikonTutup = document.getElementById('ikon-tutup');
+
+        tombolMenuHp.addEventListener('click', () => {
+            menuHp.classList.toggle('hidden');
+            ikonBuka.classList.toggle('hidden');
+            ikonTutup.classList.toggle('hidden');
+        });
+
+        // 2. Fungsi Filter Kategori Karya
+        function filterKarya(kategori, tombolDiklik) {
+            const semuaItem = document.querySelectorAll('.item-karya');
+            const semuaTombol = document.querySelectorAll('.tombol-filter');
+
+            // Ubah warna tombol yang sedang aktif
+            semuaTombol.forEach(tombol => {
+                tombol.classList.remove('bg-indigo-600', 'text-white');
+                tombol.classList.add('bg-slate-800', 'text-slate-300');
+            });
+            tombolDiklik.classList.remove('bg-slate-800', 'text-slate-300');
+            tombolDiklik.classList.add('bg-indigo-600', 'text-white');
+
+            // Tampilkan atau sembunyikan kartu sesuai kategori
